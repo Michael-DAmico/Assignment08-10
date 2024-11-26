@@ -98,6 +98,22 @@ public class Tweet implements Comparable<Tweet>{
     public int compareTo(Tweet otherTweet) {
         return this.postDateTime.compareTo(otherTweet.getPostDateTime());
     }
+
+    
+    /**
+     * Checks if this Tweet object is equal to another object.
+     * Two Tweet objects are considered equal if their id and userID are the same.
+     *
+     * @param obj the object to compare with this Tweet
+     * @return true if the given object is equal to this Tweet, false otherwise
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Tweet tweet = (Tweet) obj;
+        return id == tweet.id && Objects.equals(userID, tweet.userID);
+    }
     
 }
 
