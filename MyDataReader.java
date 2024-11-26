@@ -49,7 +49,8 @@ public class MyDataReader {
         }
         return hashMap;
     }
-    
+
+    /*
     public static HashMap<String, MyHeap<Tweet>> readDataToHashMapHeaps(String filePath) throws IOException
     {
         HashMap<String, MyHeap<Tweet>>  hashMapHeaps = new HashMap<String, MyHeap<Tweet>>();
@@ -71,7 +72,7 @@ public class MyDataReader {
         }
         return hashMapHeaps;
     }
-    
+    */
     
 
     /**
