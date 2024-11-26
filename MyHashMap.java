@@ -178,9 +178,41 @@ public class MyHashMap<K, V> implements Iterable<K> {
         return (value != null) ? value : defaultValue;
     }
     
+   /**
+     * Returns an iterator over the keys in the hash map.
+     *
+     * @return an iterator over the keys
+     */
     @Override
     public Iterator<K> iterator() {
+        return new Iterator<K>() {
+            private int bucketIndex = 0;
+            private Iterator<MyEntry<K, V>> bucketIterator = (table[bucketIndex] == null) ? null : table[bucketIndex].iterator();
+
+            private void advanceBucket() {
+                while (bucketIndex < tableSize && (table[bucketIndex] == null || !bucketIterator.hasNext())) {
+                    bucketIndex++;
+                    bucketIterator = (bucketIndex < tableSize && table[bucketIndex] != null) ? table[bucketIndex].iterator() : null;
+                }
+            }
+
+            @Override
+            public boolean hasNext() {
+                if (bucketIterator != null && bucketIterator.hasNext()) {
+                    return true;
+                }
+                advanceBucket();
+                return bucketIterator != null && bucketIterator.hasNext();
+            }
+
+            @Override
+            public K next() {
+                if (!hasNext()) {
+                    throw new IllegalStateException("No more elements");
+                }
+                return bucketIterator.next().key;
+            }
+        };
     }
-    
     
 }
