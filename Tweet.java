@@ -114,6 +114,20 @@ public class Tweet implements Comparable<Tweet>{
         Tweet tweet = (Tweet) obj;
         return id == tweet.id && Objects.equals(userID, tweet.userID);
     }
+
+    /**
+     * Returns a string representation of this tweet.
+     *
+     * @return A string containing the tweet's user ID, content, and timestamp.
+     */
+    @Override
+    public String toString() {
+        return "Tweet{" +
+                "userId='" + userID + '\'' +
+                ", content='" + text + '\'' +
+                ", postDateTime=" + postDateTime +
+                '}';
+    }
     
 }
 
