@@ -1,4 +1,4 @@
-# Assignment08-10
+# Assignment08
 Twitter
 
 Sentiment Analysis with MyHashMap Implementation
@@ -122,3 +122,108 @@ Predict the sentiment based on which sum is higher.
 Calculate Accuracy:
 
 Compare predictions to true labels and compute the ratio of correct predictions.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Assignment 9
+
+Key Features:
+
+Custom Heap Implementation (MyHeap)
+Efficient organization of tweets by recency (date and time).
+
+Supports:
+Adding tweets.
+Viewing your most recent tweet.
+Deleting the most recent tweet.
+Veiwing another users tweets.
+Sign out.
+
+Encapsulates tweet data including:
+User ID.
+Post content.
+Sentiment classification (positive/negative).
+Post date and time.
+Implements Comparable to prioritize tweets by post date.
+Data Parsing (MyDataReader)
+
+Reads tweet data from TSV files and constructs:
+A hash map of user-specific heaps (HashMap<String, MyHeap<Tweet>>).
+A hash map for sentiment classification (MyHashMap<Tweet, Boolean>).
+
+Handles preprocessing of tweet data for sentiment analysis.
+Program9 (Main Driver)
+
+Manages user interactions via a console-based UI:
+Allows users to view, delete, and query tweets.
+Supports signing in and out of user accounts.
+
+Files Included:
+Java Classes
+MyHeap: Custom heap implementation for managing tweets by recency.
+UserInterface: Implements user interface for viewing tweet data.
+MyDataReader: Utility class for reading and processing tweet datasets.
+Program9: Main program for managing and querying tweets.
+Tweet: Data class representing individual tweets with metadata and sentiment.
+
+Instructions:
+Requirements
+Java Development Kit (JDK 8 or higher).
+Input dataset formatted as a .tsv file, where each line contains:
+Tweet ID, sentiment (1 for positive, 0 for negative), user ID, text, and post date (ISO 8601 format).
+
+Compilation:
+Compile all files with the following command:
+
+bash
+Copy code
+javac -d . *.java  
+Execution
+Run the program with the following command:
+
+bash
+Copy code
+java twitterpack.Program9 <tweets_train.tsv>  
+Argument:
+
+<tweets_train.tsv>: Path to the input dataset.
+Example:
+bash
+Copy code
+java twitterpack.Program9 tweets_train.tsv  
+Output
+Data Structure Build Time:
+
+Time taken to load tweet data into the hash map of heaps.
+User Features:
+
+View the most recent tweet of a user.
+Delete the most recent tweet of a user.
+Query tweets of other users.
+Error Handling:
+
+Handles malformed data.
+Ensures user experience with detailed error messages.
+How It Works
+Data Loading Phase:
+Parses the dataset using MyDataReader.
+Constructs a hash map of user-specific heaps for managing tweets.
+Tweet Management:
+View Recent Tweet: Fetches the most recent tweet for a user.
+Delete Recent Tweet: Removes and displays the latest tweet.
+Query Other Users: Allows signed-in users to view tweets from other accounts.
+Performance Metrics
+Build time for data structures.
+Efficiency of heap operations (view, delete).
