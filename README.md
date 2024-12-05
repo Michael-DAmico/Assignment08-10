@@ -144,6 +144,41 @@ Key Features:
 Custom Heap Implementation (MyHeap)
 Efficient organization of tweets by recency (date and time).
 
+Contributions:
+
+Christian
+
+  	viewRecentTweet method in UserInterface class
+   	deleteRecentTweet method in UserInterface class
+    viewOtherUserTweet method in UserInterface class
+    signOut method in UserInterface class
+    Program9
+  	Javadoc,
+	.PDF
+ 	Readme
+
+  
+Michael
+	
+ 	MyHeap class
+  	UserInterface method in UserInterface class
+   	start method in UserInterface class
+    	displayMenu method in UserInterface class
+    toString method to Tweet class
+ 	Javadoc,
+    
+	
+
+
+  
+  Creations Made:
+  
+ 	Added UserInterface class
+ 	Added MyHeap class
+ 	Added Program9 class
+	Added tostring method to Tweet class
+    no change the MyDataReader
+    
 Supports:
 Adding tweets.
 Viewing your most recent tweet.
