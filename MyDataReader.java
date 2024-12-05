@@ -33,7 +33,7 @@ public class MyDataReader {
         return localDate;
     }
     
-    public static MyHashMap<Tweet, Boolean> readDataToHahMap(String filePath) throws IOException
+    public static MyHashMap<Tweet, Boolean> readDataToHashMap(String filePath) throws IOException
     {
         MyHashMap<Tweet, Boolean>  hashMap = new MyHashMap<Tweet, Boolean> ();
         int counter=1;
