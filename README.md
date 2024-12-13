@@ -262,3 +262,133 @@ Query Other Users: Allows signed-in users to view tweets from other accounts.
 Performance Metrics
 Build time for data structures.
 Efficiency of heap operations (view, delete).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Assignment 10
+
+Contributions:
+
+Christian
+
+  	MyQuickSort class
+   	TweetIDComparator class
+    DateTimeComparator class
+      Program10
+
+  
+Michael
+	
+ 	MyRadixSort class
+ 	Javadoc,
+    analysis 1-3 pdf
+    readme
+	
+
+
+  
+  Creations Made:
+  
+ 	Added MyRadixSort class
+  	Added MyQuickSort class
+ 	Added TweetIDComparator class
+  	Added DateTimeComparator
+ 	Added Program10 class
+
+
+
+This project consists of three main components:
+1. Tweet class (handles tweet data and comparison)
+2. MyDataReader class (handles reading and processing tweet data from a file)
+3. MyHashMap and MyHeap classes (for storing tweets efficiently)
+
+Project Features:
+1. Parse tweet data from a TSV (Tab-Separated Values) file.
+2. Store tweet data in custom data structures (MyHashMap, MyHeap).
+3. Track and process tweet sentiment and timestamps.
+4. Implement sorting algorithms (Quick Sort and Radix Sort) for tweet data comparison.
+
+How to Run:
+1. Download or clone this repository.
+2. Compile the Java classes:
+    javac TwitterDataProject.java
+3. Run the program:
+    java TwitterDataProject <path_to_tweet_file>
+
+Description of Key Components:
+
+1. Tweet Class (Tweet.java):
+This class represents a tweet and implements the Comparable interface to allow sorting by postDateTime.
+It has the following fields:
+  - int id: A unique identifier for each tweet.
+  - boolean isSentimentPositive: Sentiment analysis result for the tweet (true for positive, false for negative).
+  - String userID: The user ID associated with the tweet.
+  - String text: The content of the tweet.
+  - LocalDateTime postDateTime: The date and time when the tweet was posted.
+
+The Tweet class includes:
+  - Getter and setter methods for all fields.
+  - compareTo method to compare tweets by postDateTime.
+  - equals and hashCode methods to compare Tweet objects by their id and userID.
+  - toString method for generating a human-readable representation of a tweet.
+
+2. MyDataReader Class (MyDataReader.java):
+This class provides methods for reading tweet data from a file and processing it into various data structures.
+It includes the following methods:
+  - dateConvert(String dateTimeString): Converts a date-time string into a LocalDateTime object.
+  - readDataToHashMap(String filePath): Reads tweet data from the file and stores it in a custom MyHashMap, associating each tweet with its sentiment.
+  - readDataToHashMapHeaps(String filePath): Reads tweet data from the file and stores it in a HashMap of MyHeap objects, where each user ID maps to a heap of tweets sorted by date.
+  - readDataToArray(String filePath, int tweetCount): Reads tweet data from the file and stores it in an array of Tweet objects.
+  - lineToReport(String inputLine): A helper method to convert a line from the file into a Tweet object.
+
+3. MyHashMap and MyHeap Classes:
+These custom classes are used to store tweet data efficiently:
+  - MyHashMap stores tweets with a boolean sentiment value.
+  - MyHeap stores tweets in a heap structure, sorted by postDateTime, for each user ID.
+
+4. Sorting Algorithms:
+This project includes the implementation of **Quick Sort** and **Radix Sort** to sort tweet data based on postDateTime. These sorting algorithms are evaluated and compared in terms of time complexity and efficiency.
+
+  - **Quick Sort**:
+    Quick Sort is a comparison-based, divide-and-conquer algorithm. It selects a pivot element and partitions the data around the pivot, recursively sorting the subarrays. It generally performs well with an average time complexity of O(n log n), but it can degrade to O(n^2) if the pivot is poorly chosen.
+
+    In the project, Quick Sort is used to sort tweets based on their `postDateTime`. It efficiently handles datasets of varying sizes but can be slow with already-sorted or reverse-sorted data.
+
+  - **Radix Sort**:
+    Radix Sort is a non-comparative integer sorting algorithm that sorts data by processing individual digits. It uses counting sort as a subroutine to sort the digits of the numbers. It is very efficient for sorting large datasets with integers, operating in O(n * k) time, where `n` is the number of elements and `k` is the number of digits.
+
+    In the project, Radix Sort is used for sorting the `id` of tweets. Radix Sort is particularly effective when dealing with numerical keys and large amounts of data because of its linear time complexity in such cases.
+
+5. Sorting Comparison:
+Quick Sort and Radix Sort are both efficient sorting algorithms, but they excel in different scenarios:
+  - **Quick Sort** works well for general-purpose sorting when the data is of arbitrary types and provides good performance in most cases.
+  - **Radix Sort** is ideal when sorting integers or fixed-length strings (like tweet `id`s) and performs better on large datasets when the range of digits is small.
+
+Performance Comparisons:
+  - Quick Sort: O(n log n) on average, but may degrade to O(n^2) in the worst case.
+  - Radix Sort: O(n * k), where `n` is the number of elements, and `k` is the number of digits in the largest number. Radix Sort is more efficient when the range of `k` is small compared to `n`.
+
+For sorting tweet data, Quick Sort is applied to the `postDateTime` of tweets (as it involves dates, which are better suited for comparison-based algorithms), while Radix Sort is used for sorting the `id` field of tweets.
+
+Requirements:
+  - Java 8 or later.
+  - Java classes in this repository: Tweet, MyDataReader, MyHashMap, MyHeap, QuickSort, RadixSort.
+
+Example Usage:
+  Assuming you have a file named "tweets.tsv" containing tweet data:
+  java TwitterDataProject tweets.tsv
+
+Output:
+  The program will process the tweet data, store it in appropriate data structures, and apply sorting algorithms to order tweets by `postDateTime` or `id`. It will display the sorted tweet data and allow for comparison between Quick Sort and Radix Sort performance.
