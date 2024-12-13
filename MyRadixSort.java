@@ -1,3 +1,8 @@
+/**
+ * @author Christian Burke and Michael D'Amico
+ * @version 12 December 2024
+ */
+
 package twitterpack;
 
 import java.util.ArrayList;
